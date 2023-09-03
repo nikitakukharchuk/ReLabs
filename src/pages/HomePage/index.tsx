@@ -21,10 +21,10 @@ const HomePage = () => {
     }
 
     return (
-        <Row className='p-5' gutter={32}>
-            <Col span={12}><UsersColumn/></Col>
-            <Col span={12}><EventColumn/></Col>
-        </Row>
+        <div className='flex p-5 gap-10 xl:flex-row sm:flex-col w-full'>
+            <div className="xl:w-2/4 sm:w-full"><UsersColumn/></div>
+            <Col className="xl:w-2/4 sm:w-full"><EventColumn/></Col>
+        </div>
     )
 }
 

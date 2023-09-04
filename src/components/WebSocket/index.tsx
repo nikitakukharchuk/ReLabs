@@ -20,14 +20,12 @@ export const WebSocketProvider = ({children}: { children: React.ReactNode }) => 
     const [socket, setSocket] = useState<any>(null)
 
     const socketOn = () => {
-        console.log('socket on')
         setSocket(new WebSocket(WEBSOCKET_URL))
     }
     const socketClose = () => {
         socket.close();
         setSocket(null)
         setEvents([])
-        console.log('close')
     }
 
     useEffect(() => {

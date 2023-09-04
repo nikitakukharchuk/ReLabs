@@ -42,6 +42,7 @@ const PaginationItem = ({
           onChange={onChangeUsersList}
           total={totalPages}
           pageSize={5}
+          defaultCurrent={1}
       />
     </div>
   );

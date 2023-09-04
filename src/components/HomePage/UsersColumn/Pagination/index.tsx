@@ -41,7 +41,6 @@ const PaginationItem = ({
       <Pagination
           onChange={onChangeUsersList}
           total={totalPages}
-          current={current}
           pageSize={5}
       />
     </div>

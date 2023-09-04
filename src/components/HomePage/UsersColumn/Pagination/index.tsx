@@ -35,12 +35,13 @@ const PaginationItem = ({
     }
   };
 
+  const totalPages = total && total * 5
   return (
     <div className="flex justify-center pt-5">
       <Pagination
-        current={current}
-        total={total}
-        onChange={onChangeUsersList}
+          onChange={onChangeUsersList}
+          total={totalPages}
+          pageSize={5}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import {StoreDataType} from "../../../types/Types";
 import {Badge, Checkbox, Image, Rate, Space} from "antd";
 import { HeartFilled , HeartTwoTone } from '@ant-design/icons';
-import React, {useState} from "react";
+import {useState} from "react";
 import {StoreRating} from "../../../utils/constants/Store/StoreItem";
 
 const StoreItem = ({ image, newPrice, lastPrice, discountPrice, tags }: StoreDataType) => {

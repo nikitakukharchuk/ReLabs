@@ -3,7 +3,6 @@ import { DataTypes, NotificationType } from "../../../../types/Types";
 import { PaginationLimit } from "../../../../utils/constants/Pagination";
 import { Pagination } from "antd";
 import { usersApi } from "../../../../services/api/usersListApi";
-import { off } from "process";
 
 type Props = {
   total: number | undefined;

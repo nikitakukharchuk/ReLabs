@@ -1,14 +1,13 @@
 import {UserDataType, UsersTablePropsType} from "../../../../types/Types";
 import {Button, Table} from "antd";
 import {repairDate} from "../../../../utils/utilsFunc/repairDate";
-import {Key} from "antd/lib/table/interface";
 
 const UsersTable = ({ users, onUserDelete, isFetch } : UsersTablePropsType) => {
     const columns = [
         {
             title: 'ID',
             dataIndex: 'id',
-            key: 'id',
+            key: 'key',
         },
         {
             title: 'Имя',
@@ -24,7 +23,8 @@ const UsersTable = ({ users, onUserDelete, isFetch } : UsersTablePropsType) => {
             title: 'Дата создания',
             dataIndex: 'ctime',
             key: 'ctime',
-        },
+            render: (record : number) => repairDate(record)
+        },    
         {
             title: 'Действия',
             dataIndex: 'operation',
@@ -35,16 +35,16 @@ const UsersTable = ({ users, onUserDelete, isFetch } : UsersTablePropsType) => {
         },
     ];
 
-    type UserWithKey = UserDataType & { key: Key }
+    type UserWithKey = UserDataType & { key: React.Key }
 
     const data = users?.items.map((item): UserWithKey  => {
         return(
             {
                 id: item.id,
-                key: item.key,
+                key: item.id,
                 name: item.name,
                 role: item.role,
-                ctime: repairDate(+item.ctime)
+                ctime: item.ctime
             }
         )
     })

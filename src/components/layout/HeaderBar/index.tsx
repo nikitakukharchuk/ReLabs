@@ -29,7 +29,6 @@ const HeaderBar = ({ setAuth }: HeaderBarProps) => {
   const webSocketContext = useWebSocket();
 
   useEffect(() => {
-    // При монтировании компонента, попытайтесь восстановить текущую страницу из localStorage
     const savedCurrent = localStorage.getItem('current');
     if (savedCurrent) {
       setCurrent(savedCurrent);
@@ -50,7 +49,6 @@ const HeaderBar = ({ setAuth }: HeaderBarProps) => {
   };
 
   useEffect(() => {
-    // При изменении текущей страницы, сохраните ее значение в localStorage
     localStorage.setItem('current', current);
   }, [current]);
 

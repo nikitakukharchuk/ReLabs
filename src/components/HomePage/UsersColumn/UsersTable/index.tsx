@@ -28,7 +28,10 @@ const UsersTable = ({ users, onUserDelete, isFetch } : UsersTablePropsType) => {
         {
             title: 'Действия',
             dataIndex: 'operation',
-            render: (_: any, record: { key: React.Key }) => <Button danger onClick={() => onUserDelete(+record.key)}>Удалить</Button>
+            render: (_: any, record : UserDataType) => <Button danger onClick={() => {
+                onUserDelete(record.id)
+            }
+            }>Удалить</Button>
         },
     ];
 
@@ -45,64 +48,6 @@ const UsersTable = ({ users, onUserDelete, isFetch } : UsersTablePropsType) => {
             }
         )
     })
-    console.log(users)
-    const defaultData = [
-        {
-            key: '1',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '2',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '3',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '4',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '5',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '6',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '7',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '8',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        },
-        {
-            key: '9',
-            name: 'nikita',
-            role: 'nikita',
-            ctime: 'repairDate(+item.ctime)'
-        }
-
-    ]
 
     return (
         <Table columns={columns} dataSource={data} pagination={false} loading={isFetch}/>

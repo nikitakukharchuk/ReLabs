@@ -24,7 +24,6 @@ const UsersColumn = () => {
             try {
                 setIsFetch(true)
                 const response = await usersApi.getUsersList();
-                console.log(users)
                 setUsers(response.data)
                 openNotificationWithIcon('success','Все пользователи успешно получены')
                 setIsFetch(false)

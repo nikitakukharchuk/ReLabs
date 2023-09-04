@@ -3,6 +3,7 @@ import { DataTypes, NotificationType } from "../../../../types/Types";
 import { PaginationLimit } from "../../../../utils/constants/Pagination";
 import { Pagination } from "antd";
 import { usersApi } from "../../../../services/api/usersListApi";
+import { off } from "process";
 
 type Props = {
   total: number | undefined;
@@ -26,7 +27,7 @@ const PaginationItem = ({
       setIsFetch(true);
       const newUsersData = await usersApi.getUsersList(offset);
       setData(newUsersData.data);
-      setCurrent(offset);
+      setCurrent(item);
       setIsFetch(false);
       openNotificationWithIcon("success", "Данные получены");
     } catch (error) {
@@ -40,9 +41,9 @@ const PaginationItem = ({
     <div className="flex justify-center pt-5">
       <Pagination
           onChange={onChangeUsersList}
+          current={current}
           total={totalPages}
           pageSize={5}
-          defaultCurrent={1}
       />
     </div>
   );

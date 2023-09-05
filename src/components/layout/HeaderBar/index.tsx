@@ -4,7 +4,6 @@ import { UserOutlined } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
 import RoutePath from '../../../utils/constants/Route';
 import { localStorageLoginDelete } from '../../../utils/utilsFunc/localStorageAuthLogin';
-import { useWebSocket } from '../../WebSocket';
 
 const { Header } = Layout;
 
@@ -26,7 +25,6 @@ const itemsMenu = [
 const HeaderBar = ({ setAuth }: HeaderBarProps) => {
   const routeNavigate = useNavigate();
   const [current, setCurrent] = useState('1');
-  const webSocketContext = useWebSocket();
 
   useEffect(() => {
     const savedCurrent = localStorage.getItem('current');
@@ -43,9 +41,6 @@ const HeaderBar = ({ setAuth }: HeaderBarProps) => {
     localStorageLoginDelete();
     setAuth(false);
     routeNavigate(RoutePath.LOGIN_PAGE);
-    if (webSocketContext && webSocketContext.socket) {
-      webSocketContext.socketClose();
-    }
   };
 
   useEffect(() => {

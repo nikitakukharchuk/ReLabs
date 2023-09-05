@@ -4,17 +4,8 @@ import StoreItem from "./StoreItem";
 import { localStorageLoginGet } from "../../utils/utilsFunc/localStorageAuthLogin";
 import { Navigate } from "react-router-dom";
 import RoutePath from "../../utils/constants/Route";
-import { useWebSocket } from "../../components/WebSocket";
-import { useEffect } from "react";
 
 const OnlineStorePage = () => {
-  const webSocketContext = useWebSocket();
-
-  useEffect(() => {
-    if (webSocketContext && webSocketContext.socket) {
-      webSocketContext.socketClose();
-    }
-  }, [webSocketContext]);
   const login = localStorageLoginGet();
   if (!login) {
     return <Navigate to={RoutePath.LOGIN_PAGE} />;

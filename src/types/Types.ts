@@ -49,6 +49,7 @@ export type StoreDataType = {
 }
 
 export type EventType =  {
-    ctime: string;
+    key: string;
+    ctime: number;
     event: string;
 }

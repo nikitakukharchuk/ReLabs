@@ -7,14 +7,12 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import OnlineStorePage from "./pages/OnlineStorePage";
 import HeaderBar from "./components/layout/HeaderBar";
-import { WebSocketProvider } from './components/WebSocket';
 
 function App() {
   const login = localStorageLoginGet();
   const [isAuth , setAuth] = useState(!!login)
 
   return (
-   <WebSocketProvider>
     <div className="App">
       {isAuth && <header>
             <HeaderBar setAuth={setAuth}/>
@@ -26,7 +24,6 @@ function App() {
         <Route path='*' element={<Navigate to={'/'}/>}/>
       </Routes>
     </div>
-   </WebSocketProvider>
   );
 }
 
